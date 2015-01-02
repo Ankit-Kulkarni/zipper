@@ -1,5 +1,5 @@
 Zipper::Application.routes.draw do
-  # root :to => 'upload#new'
+  root :to => 'upload#new'
   resources :upload
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
