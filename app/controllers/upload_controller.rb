@@ -54,9 +54,6 @@ class UploadController < ApplicationController
     @fname = params[:fname]
     @id = params[:id]
     send_file params[:fname]
-    respond_to do |format|
-      format.js {render inline: "location.reload();" }
-    end
   end
 
 end
