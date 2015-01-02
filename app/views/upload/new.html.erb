@@ -1,0 +1,21 @@
+<div class="container">
+<h1>Upload your file to be zipped </h1>
+<h2> Max limit 10 MB</h2>
+<% flash.each do |key, msg| %>
+    <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_#{key}" %>
+<% end %>
+
+
+
+<%= form_tag( { :action => 'create' }, :multipart => true ) %>
+  Upload file: <%= file_field( "form", "file" ,{multiple: true}) %>
+  <br />
+  <br />
+  <%= submit_tag( "Upload file" ) %>
+  <br />
+</form>
+<br><br>
+<hr>
+
+
+</div>

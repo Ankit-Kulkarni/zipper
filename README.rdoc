@@ -1,0 +1,51 @@
+== README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.
+
+<%= form_for :file_upload, :html => {:multipart => true} do |f| %>
+  <%= f.file_field :my_file %>
+  <%= f.submit "Upload" %>
+<% end %>
+
+
+def file_upload  
+  require 'fileutils'
+  tmp = params[:file_upload][:my_file].tempfile
+  file = File.join("public", params[:file_upload][:my_file].original_filename)
+  FileUtils.cp tmp.path, file
+  ... # YOUR PARSING JOB
+  FileUtils.rm file
+end
+
+
+def file_upload
+    tmp = params[:file_upload][:my_file].tempfile
+    require 'ftools'
+    file = File.join("public", params[:file_upload][:my_file].original_filename)
+    FileUtils.cp tmp.path, file
+end
