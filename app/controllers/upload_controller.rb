@@ -15,7 +15,7 @@ class UploadController < ApplicationController
     
     #create the file 
     new_folder_path ="public/uploads/" +new_folder_name 
-    FileUtils.mkdir(new_folder_path)
+    FileUtils.mkdir_p(new_folder_path)
     temp_files = []
     size_limit = 1048576
     total_size = 0
